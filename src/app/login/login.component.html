@@ -1,0 +1,36 @@
+<div *ngIf="mensajeDeRegistro==true">
+    <div class="divCentrado">
+        <mat-toolbar color="primary" class="login">
+            <h1>Login</h1>
+        </mat-toolbar>
+    </div>
+    <div class="divCentrado">
+        <form action="">
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>
+                        <h3>+54</h3>
+                    </mat-label>
+                    <input matInput type="email" placeholder="Ex. pat@example.com">
+                </mat-form-field>
+    
+                <button mat-raised-button color="primary" type="submit">
+                    Enviar Código
+                </button>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>
+                        <h3>Código Sms</h3>
+                    </mat-label>
+                    <input matInput type="email" placeholder="Ex. pat@example.com">
+                </mat-form-field>
+            </div>
+            <div class="divCentrado">
+                <button mat-raised-button color="primary" class="botonLogin" type="submit">
+                    Registrarse
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

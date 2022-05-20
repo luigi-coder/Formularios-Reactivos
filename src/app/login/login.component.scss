@@ -1,0 +1,67 @@
+.app-login {
+
+    .divCentrado{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .login{
+
+            margin-top: 80px;
+            border-radius: 10px;
+            width: 500px;
+            height:150px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 70px ;
+
+        }
+        form {
+
+            mat-form-field {
+
+                margin-right: 15px;
+            }
+            button {
+                margin-left: 15px;
+            }
+
+        }
+
+        .botonLogin {
+
+            width: 100%;
+            height: 60px;
+            margin-top: 70px;
+            margin-bottom: 70px;
+
+        }
+        
+
+
+    }
+    
+}
+mat-grid-list {
+    background-color: red;
+}
+/* mat-grid-list {
+
+    margin: 20px;
+    width: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    mat-grid-tile {
+
+        background: #673ab7;
+        border-radius: 10px;
+    }
+} */
+
+

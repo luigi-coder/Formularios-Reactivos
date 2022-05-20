@@ -1,0 +1,140 @@
+<div *ngIf="formRegistroActivo==false">
+    <div class="divCentrado">
+        <div class="registro">
+            <mat-toolbar color="primary" class="registro">
+                <h1>Registrarse</h1>
+            </mat-toolbar>
+        </div>
+    </div>
+    <div class="divCentrado">
+        <div class="mr">
+            <form [formGroup]="miFormulario" (ngSubmit)="registrarse()">
+                <div>
+                    <div class="ml">
+                        <mat-form-field appearance="fill">
+                            <mat-label>
+                                <h3>Email</h3>
+                            </mat-label>
+                            <input 
+                                matInput 
+                                type="email"
+                                formControlName="email" 
+                                placeholder="Ex. pat@example.com">
+                            
+                                <span class="error-message" *ngIf="MensajeError('email')">
+                                    Email requerido o no ingresaste un email valido
+                                </span>
+                        </mat-form-field>
+                    </div>
+                    <div class="inline ml">
+                        <mat-form-field appearance="fill">
+                            <mat-label>
+                                <h3>Nombre</h3>
+                            </mat-label>
+                            <input 
+                                matInput 
+                                type="text" 
+                                formControlName="nombre"
+                                placeholder="Ex. Luis">
+                                <span class="error-message" *ngIf="MensajeError('nombre')">
+                                    Este campo es requerido
+                                </span>
+                        </mat-form-field>
+                    </div>
+                    <div class="inline ml">
+                        <mat-form-field appearance="fill">
+                            <mat-label>
+                                <h3>Celular</h3>
+                            </mat-label>
+                            <input 
+                                matInput 
+                                type="text" 
+                                formControlName="celular"
+                                placeholder="Ex. +54 1130990849">
+                                <span class="error-message" *ngIf="MensajeError('celular')">
+                                    Este campo es requerido
+                                </span>
+                        </mat-form-field>
+                    </div>
+                    <div class="inline">
+                        <button 
+                            mat-raised-button 
+                            color="primary"
+                            type="reset"
+                            type="submit"
+                            [disabled]="miFormulario.controls['celular'].invalid">
+                            Enviar
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <div class="inline ml">
+                        <mat-form-field appearance="fill">
+                            <mat-label>
+                                <h3>Apellido</h3>
+                            </mat-label>
+                            <input 
+                                matInput 
+                                type="text" 
+                                formControlName="apellido"
+                                placeholder="Ex. Salinas">
+                                <span class="error-message" *ngIf="MensajeError('apellido')">
+                                    Este campo es requerido
+                                </span>
+                        </mat-form-field>
+                    </div>
+                    <div class="inline ml">
+    
+                        <mat-form-field appearance="fill">
+                            <mat-label>
+                                <h3>Codigo Sms</h3>
+                            </mat-label>
+                            <input 
+                                matInput 
+                                type="text"
+                                formControlName="codigo" 
+                                placeholder="Ex. 4545">
+                                <span class="error-message" *ngIf="MensajeError('codigo')">
+                                    Este campo es requerido
+                                </span>
+                        </mat-form-field>
+                    </div>
+    
+                </div>
+                <div>
+                    <h3 class="ml">Preferencias</h3>
+    
+                    <mat-radio-group formControlName="preferencias"
+                        aria-label="Select an option">
+                        <mat-radio-button 
+                            class="ml"
+                            [color]="task.color"
+                            
+                            value="Indica"
+                            >
+                            Indica
+                           
+                        </mat-radio-button>
+                        <mat-radio-button 
+                            [color]="task.color"
+                            value="Sativa"
+                            
+                            >
+                            Sativa
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="divCentrado">
+                    <button 
+                        mat-raised-button 
+                        color="primary" 
+                        class="botonRegistro"
+                        [disabled]="miFormulario.invalid"
+                        type="submit">
+                        Registrarse
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
