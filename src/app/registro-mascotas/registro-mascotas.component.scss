@@ -1,12 +1,28 @@
-.app-login {
+.app-registro-mascotas {
 
-    .divCentrado{
-
+    .mr {
+        margin-right: 5px;
+    }
+    .ml {
+        margin-left: 5px;
+    }
+    .mat-icon{
+        background-color: red;
+   
+        justify-content: center;
+        align-items: center;
+    }
+    h3 {
+        background-color: aqua;
+    }
+    
+    .divCentrado {
         display: flex;
         justify-content: center;
         align-items: center;
+        
 
-        .login{
+        .registro {
 
             margin-top: 80px;
             border-radius: 10px;
@@ -19,25 +35,23 @@
             margin-bottom: 70px ;
 
         }
+
         form {
 
-            mat-form-field {
-
-                margin-right: 15px;
+            .ml {
+                margin-right: 11px;
             }
-            button {
-                margin-left: 15px;
+            .inline {
+                display: inline;
             }
-
+            
         }
 
-        .botonLogin {
+        .botonRegistro {
 
-            width: 100%;
+            width: 80%;
             height: 60px;
-            margin-top: 70px;
-            margin-bottom: 70px;
-
+            margin-top: 100px;
         }
 
         .error-message {
@@ -50,12 +64,6 @@
             text-align: justify;
             border-radius: 5px;
         }
-        
-
 
     }
-    
 }
-
-
-

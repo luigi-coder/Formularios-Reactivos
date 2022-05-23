@@ -1,20 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login.component';
+import { RegistroMascotasComponent } from './registro-mascotas.component';
+import { FormulariosService } from '../serviceForms/formularios.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRippleModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
-import { FormulariosService } from '../serviceForms/formularios.service';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatIconModule } from '@angular/material/icon'
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    RegistroMascotasComponent
   ],
   imports: [
     CommonModule,
@@ -23,14 +24,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatRippleModule,
     MatButtonModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatIconModule
   ],
   exports: [
-    LoginComponent
+    RegistroMascotasComponent
   ],
   providers: [
     FormulariosService
-  ],
+  ]
 })
-export class LoginModule { }
+export class RegistroMascotasModule { }

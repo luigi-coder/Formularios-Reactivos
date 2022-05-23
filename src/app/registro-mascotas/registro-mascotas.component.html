@@ -1,0 +1,110 @@
+<!-- <div class="divCentrado">
+    <mat-toolbar color="primary" class="r">
+        <h1>Registro de Mascotas</h1>
+    </mat-toolbar>
+</div> -->
+
+<!-- <div class="divCentrado">
+    <form [formGroup]="miFormularioRegistroMascotas" (ngSubmit)="registrarMascotas()">
+        <div>
+            <h4>Pais</h4>
+            <mat-form-field appearance="fill">
+                <mat-label>Ingrese su país</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let pais of paises" [value]="pais.value">
+                        {{pais.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="enLinea">
+            <h4>Provincia</h4>
+            <mat-form-field appearance="fill">
+                <mat-label>Ingrese su país</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let pais of paises" [value]="pais.value">
+                        {{pais.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </form>
+</div> -->
+
+
+<div>
+    <div class="divCentrado">
+        <div class="registro">
+            <mat-toolbar color="primary" class="registro">
+                <h1>Registrars Mascota </h1>
+            </mat-toolbar>
+        </div>
+    </div>
+    <div class="divCentrado">
+        <div class="mr">
+            <form>
+                <div>
+                    <div class="inline ml">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Ingrese su país</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let pais of paises" [value]="pais.value">
+                                    {{pais.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="inline ml">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Ingrese su provincia</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let pais of paises" [value]="pais.value">
+                                    {{pais.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div>
+                    <div class="inline ml">
+                        <mat-form-field appearance="fill">
+                            <mat-label>
+                                <h3>Direccion</h3>
+                            </mat-label>
+                            <input matInput type="text" placeholder="Ex. Street 230">
+
+                        </mat-form-field>
+                    </div>
+                    <div class="inline ml">
+                        <mat-form-field appearance="fill">
+                            <mat-label>
+                                <h3>Codigo Postal</h3>
+                            </mat-label>
+                            <input matInput type="text" placeholder="Ex. 1425">
+
+                        </mat-form-field>
+                    </div>
+                    <div class="inline ml">
+                        <mat-form-field appearance="fill">
+                            <mat-label>
+                                <h3>Telefono</h3>
+                            </mat-label>
+                            <input matInput type="text" placeholder="Ex. +541130990849">
+
+                        </mat-form-field>
+                    </div>
+
+
+                </div>
+                <div class="ml">
+                    <h3>Agregar Mascota<mat-icon class="mt ml">add_circle_outline</mat-icon></h3>
+                </div>
+                <div class="divCentrado">
+                    <button mat-raised-button color="primary" class="botonRegistro" type="submit">
+                        Registrarse
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

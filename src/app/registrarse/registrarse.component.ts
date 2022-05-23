@@ -62,14 +62,14 @@ export class RegistrarseComponent implements OnInit {
 
     console.log(JSON.stringify(this.miFormulario.value))
     
-    this.miFormulario.markAsUntouched();
+    //this.miFormulario.markAsUntouched();
 
     this.miFormulario.reset();
 
     // Bug - No limpia los errores del control
-    this.miFormulario.controls['email'].setErrors(null);
+    /* this.miFormulario.controls['email'].setErrors(null);
     this.miFormulario.controls["nombre"].setErrors(null);
-    this.miFormulario.controls["celular"].setErrors(null);
+    this.miFormulario.controls["celular"].setErrors(null); */
 
     Object.keys(this.miFormulario.controls).forEach((key:string) => {
 
@@ -91,9 +91,4 @@ export class RegistrarseComponent implements OnInit {
     return this.miFormulario.controls[campo].errors && this.miFormulario.controls[campo].touched;
   }
 
-  enviarMensaje(mensajeGoku: string){
-      
-     
-  
-  }
 }

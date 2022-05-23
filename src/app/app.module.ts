@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrarseModule } from './registrarse/registrarse.module';
 import { LoginModule } from './login/login.module';
 import { FormulariosService } from './serviceForms/formularios.service';
+import { RegistroMascotasModule } from './registro-mascotas/registro-mascotas.module';
+
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { FormulariosService } from './serviceForms/formularios.service';
     BrowserModule,
     BrowserAnimationsModule,
     RegistrarseModule,
-    LoginModule
+    LoginModule,
+    RegistroMascotasModule
   ],
   providers: [
     FormulariosService

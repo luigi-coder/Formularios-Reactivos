@@ -5,16 +5,28 @@
         </mat-toolbar>
     </div>
     <div class="divCentrado">
-        <form action="">
+        <form [formGroup]="miFormularioLogin" (ngSubmit)="iniciarSesion()">
             <div>
                 <mat-form-field appearance="fill">
                     <mat-label>
                         <h3>+54</h3>
                     </mat-label>
-                    <input matInput type="email" placeholder="Ex. pat@example.com">
+                    <input 
+                        matInput 
+                        type="text" 
+                        formControlName="celular"
+                        placeholder="Ex. +54 1130990849">
+
+                    <span class="error-message" *ngIf="MensajeError('celular')">
+                        Este campo es requerido
+                    </span>
                 </mat-form-field>
     
-                <button mat-raised-button color="primary" type="submit">
+                <button 
+                    mat-raised-button 
+                    color="primary" 
+                    type="submit"
+                    [disabled]="miFormularioLogin.controls['celular'].invalid">
                     Enviar Código
                 </button>
             </div>
@@ -23,12 +35,25 @@
                     <mat-label>
                         <h3>Código Sms</h3>
                     </mat-label>
-                    <input matInput type="email" placeholder="Ex. pat@example.com">
+                    <input 
+                        matInput 
+                        type="text"
+                        formControlName="codigo" 
+                        placeholder="Ex. 4545">
+
+                    <span class="error-message" *ngIf="MensajeError('codigo')">
+                        Este campo es requerido
+                    </span>
                 </mat-form-field>
             </div>
             <div class="divCentrado">
-                <button mat-raised-button color="primary" class="botonLogin" type="submit">
-                    Registrarse
+                <button 
+                    mat-raised-button 
+                    color="primary" 
+                    class="botonLogin" 
+                    type="submit"
+                    [disabled]="miFormularioLogin.controls['codigo'].invalid">
+                    Inicias Sesion
                 </button>
             </div>
         </form>
