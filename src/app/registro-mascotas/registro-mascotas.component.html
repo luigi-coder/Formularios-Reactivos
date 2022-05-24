@@ -36,18 +36,18 @@
     <div class="divCentrado">
         <div class="registro">
             <mat-toolbar color="primary" class="registro">
-                <h1>Registrars Mascota </h1>
+                <h1>Registrar Mascota </h1>
             </mat-toolbar>
         </div>
     </div>
     <div class="divCentrado">
         <div class="mr">
-            <form>
+            <form [formGroup]="miFormularioRegistroMascotas" (ngSubmit)="agregarMascota()">
                 <div>
                     <div class="inline ml">
                         <mat-form-field appearance="fill">
                             <mat-label>Ingrese su país</mat-label>
-                            <mat-select>
+                            <mat-select formControlName="paises" (selectionChange)="llenarProvincias($event.value)">
                                 <mat-option *ngFor="let pais of paises" [value]="pais.value">
                                     {{pais.viewValue}}
                                 </mat-option>
@@ -57,9 +57,10 @@
                     <div class="inline ml">
                         <mat-form-field appearance="fill">
                             <mat-label>Ingrese su provincia</mat-label>
-                            <mat-select>
-                                <mat-option *ngFor="let pais of paises" [value]="pais.value">
-                                    {{pais.viewValue}}
+                            <mat-select formControlName="provincias">
+                                <mat-option *ngFor="let provincia of provincias" [value]="provincia">
+                                    {{provincia}}
+
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
@@ -71,7 +72,7 @@
                             <mat-label>
                                 <h3>Direccion</h3>
                             </mat-label>
-                            <input matInput type="text" placeholder="Ex. Street 230">
+                            <input matInput type="text" formControlName="direcciones" placeholder="Ex. Street 230">
 
                         </mat-form-field>
                     </div>
@@ -80,7 +81,7 @@
                             <mat-label>
                                 <h3>Codigo Postal</h3>
                             </mat-label>
-                            <input matInput type="text" placeholder="Ex. 1425">
+                            <input matInput type="text" formControlName="codigo" placeholder="Ex. 1425">
 
                         </mat-form-field>
                     </div>
@@ -89,22 +90,105 @@
                             <mat-label>
                                 <h3>Telefono</h3>
                             </mat-label>
-                            <input matInput type="text" placeholder="Ex. +541130990849">
+                            <input matInput type="text" formControlName="celular" placeholder="Ex. +541130990849">
 
                         </mat-form-field>
                     </div>
 
 
                 </div>
-                <div class="ml">
-                    <h3>Agregar Mascota<mat-icon class="mt ml">add_circle_outline</mat-icon></h3>
+                <div class="mb">
+                    <div
+                        *ngIf="arrayMascotas.length > 0"    
+                        formArrayName="arrayMascotas">
+                        <table>
+                            <tr>
+                                <th>Tipo mascota</th>
+                                <th>Nombre mascota</th>
+                                <th>Edad mascota</th>
+                            </tr>
+                            
+                            <tr *ngFor="let mascota of arrayMascotas.value">
+                                <td>{{mascota.tipoMascota}}</td>
+                                <td>{{mascota.nombreMascota}}</td>
+                                <td>{{mascota.edadMascota}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="ml">
+                        <h3 class="ml">Agregar Mascota
+                            <mat-icon class="mt ml" (click)="expandirForm()">
+                                add_circle_outline</mat-icon>
+                        </h3>
+                    </div>
+                    <div *ngIf="expandir==true">
+
+                        <div>
+                            <div class="inline ml">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Tipo de mascota</mat-label>
+                                    <mat-select 
+                                        [formControl]="tipoMascota">
+                                        <mat-option *ngFor="let mascota of mascotas" [value]="mascota.value">
+                                            {{mascota.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="inline ml">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Nombre</mat-label>
+                                    <input matInput type="text" [formControl]="nombreMascota" placeholder="Ex. Emma">
+                                </mat-form-field>
+                            </div>
+                            <div class="inline ml">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Edad</mat-label>
+                                    <input 
+                                        matInput 
+                                        type="text" 
+                                        [formControl]="edadMascota" 
+                                        placeholder="Ex. 5">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="divCentrado">
+                            <div class="ml">
+                                <button mat-raised-button color="primary" class="buttonCancelar" type="submit">
+                                    Cancelar
+                                </button>
+                            </div>
+                            <div class="mr">
+                                <button mat-raised-button color="primary" class="buttonAgregarMascota" type="submit">
+                                    Agregar Mascota
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- <div class="divCentrado">
+                        <button mat-raised-button color="primary" class="botonRegistro"
+                            [disabled]="!miFormularioRegistroMascotas.valid" type="submit">
+                            Registrarse
+                        </button>
+                    </div> -->
                 </div>
-                <div class="divCentrado">
-                    <button mat-raised-button color="primary" class="botonRegistro" type="submit">
-                        Registrarse
-                    </button>
-                </div>
+
             </form>
         </div>
     </div>
 </div>
+
+<span>Valid</span>
+<pre>{{miFormularioRegistroMascotas. valid}}</pre>
+<br>
+
+<span>Value</span>
+<pre>{{miFormularioRegistroMascotas.value | json}}</pre>
+<br>
+
+<span>Agregar Mascota</span>
+<pre>{{tipoMascota.value | json}}</pre>
+<pre>{{nombreMascota.value | json}}</pre>
+<pre>{{edadMascota.value | json}}</pre>
